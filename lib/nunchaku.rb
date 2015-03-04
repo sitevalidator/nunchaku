@@ -3,5 +3,7 @@ require "nunchaku/checker"
 require "nunchaku/message"
 
 module Nunchaku
-  # Your code goes here...
+  def self.check(url, options = {})
+    Nunchaku::Checker.new(url, options)
+  end
 end

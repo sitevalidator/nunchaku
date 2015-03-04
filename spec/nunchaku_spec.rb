@@ -1,25 +1,25 @@
 require 'spec_helper'
 
-describe Nunchaku::Checker do
+describe Nunchaku do
   describe "initialization" do
     it "sets the URL of the document to check" do
-      checker = Nunchaku::Checker.new('http://validationhell.com')
+      checker = Nunchaku.check('http://validationhell.com')
       expect(checker.url).to eq 'http://validationhell.com'
     end
 
     it "has a default checker URI" do
-      checker = Nunchaku::Checker.new('http://validationhell.com')
+      checker = Nunchaku.check('http://validationhell.com')
       expect(checker.checker_uri).to eq 'https://html5.validator.nu/'
     end
 
     it "checker URI can be set" do
-      checker = Nunchaku::Checker.new('http://validationhell.com', checker_uri: 'http://checker.example.com/')
+      checker = Nunchaku.check('http://validationhell.com', checker_uri: 'http://checker.example.com/')
       expect(checker.checker_uri).to eq 'http://checker.example.com/'
     end
   end
 
   describe "checking markup" do
-    let(:checker) { Nunchaku::Checker.new('http://validationhell.com') }
+    let(:checker) { Nunchaku.check('http://validationhell.com') }
 
     it "returns the raw JSON response" do
       expect(checker.raw).to eq expected_json
