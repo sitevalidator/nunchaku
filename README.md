@@ -1,4 +1,4 @@
-# Nunchaku [![travis build status](https://secure.travis-ci.org/sitevalidator/nunchaku.png?branch=master)](http://travis-ci.org/sitevalidator/nunchaku)
+# Nunchaku [![travis build status](https://secure.travis-ci.org/sitevalidator/nunchaku.png?branch=master)](http://travis-ci.org/sitevalidator/nunchaku) [![Code Climate](https://codeclimate.com/github/sitevalidator/nunchaku/badges/gpa.svg)](https://codeclimate.com/github/sitevalidator/nunchaku)
 
 Nunchaku is a Ruby client for the [Nu HTML Checker](https://github.com/validator/validator). It lets you easily check HTML markup of web pages, by querying a remote instance of the checker.
 
