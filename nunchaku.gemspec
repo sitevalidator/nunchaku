@@ -9,10 +9,6 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Jaime Iniesta"]
   spec.email         = ["jaimeiniesta@gmail.com"]
 
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com' to prevent pushes to rubygems.org, or delete to allow pushes to any server."
-  end
-
   spec.summary       = %q{Ruby client for the Nu HTML Checker}
   spec.description   = %q{Ruby client to check HTML markup using the Nu HTML Checker at https://html5.validator.nu/}
   spec.homepage      = "https://github.com/sitevalidator/nunchaku"
