@@ -16,6 +16,18 @@ module Nunchaku
       @raw ||= JSON.parse HTTParty.get("#{checker_uri}?out=json&doc=#{@url}").body
     end
 
+    def messages
+      @messages ||= raw['messages'].map { |message| Nunchaku::Message.new(message) }
+    end
+
+    def errors
+      messages.select { |message| message.type == 'error' }
+    end
+
+    def warnings
+      messages.select { |message| message.subtype == 'warning' }
+    end
+
     private
 
     def defaults

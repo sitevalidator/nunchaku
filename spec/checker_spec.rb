@@ -18,9 +18,27 @@ describe Nunchaku::Checker do
     end
   end
 
-  it "returns the raw JSON response" do
-    checker = Nunchaku::Checker.new('http://validationhell.com')
-    expect(checker.raw).to eq expected_json
+  describe "checking markup" do
+    let(:checker) { Nunchaku::Checker.new('http://validationhell.com') }
+
+    it "returns the raw JSON response" do
+      expect(checker.raw).to eq expected_json
+    end
+
+    it "returns the list of messages" do
+      expect(checker.messages.size).to eq 12
+      expect(checker.messages.first.message).to eq "Obsolete doctype. Expected “<!DOCTYPE html>”."
+    end
+
+    it "filters errors from the messages" do
+      expect(checker.errors.size).to eq 11
+      expect(checker.errors.first.message).to eq "The “align” attribute on the “img” element is obsolete. Use CSS instead."
+    end
+
+    it "filters warnings from the messages" do
+      expect(checker.warnings.size).to eq 1
+      expect(checker.warnings.first.message).to eq "Obsolete doctype. Expected “<!DOCTYPE html>”."
+    end
   end
 
   private
