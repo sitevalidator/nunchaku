@@ -32,7 +32,7 @@ Then, you can check the JSON response like this:
 
 ```ruby
 checker.raw # {
-            #   "url": "http://validationhell.com",
+            #   "url": "http://example.com",
             #   "messages": [{
             #                  "type": "error",
             #                  "lastLine": 73,
@@ -68,7 +68,7 @@ The `messages` array contains all messages returned by the checker, but you'll t
 By default, Nunchaku will query the Nu HTML Checker at https://html5.validator.nu, but you're encouraged to install your own instance and use it instead. You can follow the [Nu installation instructions](https://github.com/validator/validator) and then specify the alternate server like this:
 
 ```ruby
-checker = Nunchaku.check('http://example.com', checker_uri: 'http://mychecker.example.com')
+Nunchaku.check('http://example.com', checker_uri: 'http://yourchecker.com')
 ```
 
 ## Development
