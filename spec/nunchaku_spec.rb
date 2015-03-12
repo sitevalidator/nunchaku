@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Nunchaku do
   before(:each) do
-    stub_request(:get, "https://html5.validator.nu/?doc=http://validationhell.com&out=json").
+    stub_request(:get, "http://validator.w3.org/nu/?doc=http://validationhell.com&out=json").
       to_return(:status => 200, :body => fixture_file('validationhell.response'))
   end
 
@@ -14,7 +14,7 @@ describe Nunchaku do
 
     it "has a default checker URI" do
       checker = Nunchaku.check('http://validationhell.com')
-      expect(checker.checker_uri).to eq 'https://html5.validator.nu/'
+      expect(checker.checker_uri).to eq 'http://validator.w3.org/nu/'
     end
 
     it "checker URI can be set" do

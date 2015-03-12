@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["jaimeiniesta@gmail.com"]
 
   spec.summary       = %q{Ruby client for the Nu HTML Checker}
-  spec.description   = %q{Ruby client to check HTML markup using the Nu HTML Checker at https://html5.validator.nu/}
+  spec.description   = %q{Ruby client to check HTML markup using the Nu HTML Checker at http://validator.w3.org/nu/}
   spec.homepage      = "https://github.com/sitevalidator/nunchaku"
   spec.license       = "MIT"
 

@@ -65,7 +65,7 @@ The `messages` array contains all messages returned by the checker, but you'll t
 
 ## Using an alternate server
 
-By default, Nunchaku will query the Nu HTML Checker at https://html5.validator.nu, but you're encouraged to install your own instance and use it instead. You can follow the [Nu installation instructions](https://github.com/validator/validator) and then specify the alternate server like this:
+By default, Nunchaku will query the Nu HTML Checker at http://validator.w3.org/nu but you're encouraged to install your own instance and use it instead. You can follow the [Nu installation instructions](https://github.com/validator/validator) and then specify the alternate server like this:
 
 ```ruby
 Nunchaku.check('http://example.com', checker_uri: 'http://yourchecker.com')

@@ -31,7 +31,7 @@ module Nunchaku
     private
 
     def defaults
-      { checker_uri: 'https://html5.validator.nu/' }
+      { checker_uri: 'http://validator.w3.org/nu/' }
     end
   end
 end
