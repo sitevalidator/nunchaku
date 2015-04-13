@@ -36,9 +36,13 @@ module Nunchaku
     end
 
     def vnu_request_querystring
-      s  = "#{checker_uri}?out=json&doc=#{@url}"
-      s += "&useragent=#{@user_agent}" if @user_agent
+      s  = "#{checker_uri}?out=json&doc=#{escaped @url}"
+      s += "&useragent=#{escaped @user_agent}" if @user_agent
       s
+    end
+
+    def escaped(str)
+      CGI::escape str
     end
 
     def defaults

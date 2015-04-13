@@ -12,7 +12,7 @@ describe Nunchaku do
     end
 
     it "chrome" do
-      stub_request(:get, "http://validator.w3.org/nu/?doc=http://validationhell.com&out=json&useragent=#{chrome}").
+      stub_request(:get, "http://validator.w3.org/nu/?doc=http://validationhell.com&out=json&useragent=#{escaped chrome}").
         to_return(:status => 200, :body => fixture_file('validationhell.response'))
 
         checker = Nunchaku.check('http://validationhell.com', user_agent: chrome)
@@ -20,7 +20,7 @@ describe Nunchaku do
     end
 
     it "firefox" do
-      stub_request(:get, "http://validator.w3.org/nu/?doc=http://validationhell.com&out=json&useragent=#{firefox}").
+      stub_request(:get, "http://validator.w3.org/nu/?doc=http://validationhell.com&out=json&useragent=#{escaped firefox}").
         to_return(:status => 200, :body => fixture_file('validationhell.response'))
 
         checker = Nunchaku.check('http://validationhell.com', user_agent: firefox)
@@ -28,6 +28,10 @@ describe Nunchaku do
     end
 
     private
+
+    def escaped(str)
+      CGI::escape(str)
+    end
 
     def chrome
       "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
