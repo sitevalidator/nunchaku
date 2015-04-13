@@ -3,17 +3,18 @@ require 'json'
 
 module Nunchaku
   class Checker
-    attr_reader :url, :checker_uri
+    attr_reader :url, :checker_uri, :user_agent
 
     def initialize(url, options = {})
       options = defaults.merge(options)
 
       @url         = url
       @checker_uri = options[:checker_uri]
+      @user_agent  = options[:user_agent]
     end
 
     def raw
-      @raw ||= JSON.parse HTTParty.get("#{checker_uri}?out=json&doc=#{@url}").body
+      @raw ||= JSON.parse vnu_request
     end
 
     def messages
@@ -29,6 +30,16 @@ module Nunchaku
     end
 
     private
+
+    def vnu_request
+      HTTParty.get(vnu_request_querystring).body
+    end
+
+    def vnu_request_querystring
+      s  = "#{checker_uri}?out=json&doc=#{@url}"
+      s += "&useragent=#{@user_agent}" if @user_agent
+      s
+    end
 
     def defaults
       { checker_uri: 'http://validator.w3.org/nu/' }

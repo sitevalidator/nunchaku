@@ -71,6 +71,14 @@ By default, Nunchaku will query the Nu HTML Checker at http://validator.w3.org/n
 Nunchaku.check('http://example.com', checker_uri: 'http://yourchecker.com')
 ```
 
+## Specifying a custom User-Agent string
+
+If you want to specify a custom User-Agent string so that the Nu HTML Checker presents itself as another agent, you can do it like this:
+
+```ruby
+Nunchaku.check('http://example.com', user_agent: 'Mozilla/5.0 (Windows NT 6.3; rv:36.0) Gecko/20100101 Firefox/36.0')
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
